@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Chat from './components/Chat';
 import Register from './components/Register';
 import FetchCsrfToken from './components/FetchCsrfToken';
-import './app.css';
+// import './app.css';
 
 const ProtectedRoute = ({ element, token }) => {
   return token ? element : <Navigate to="/login" />;
