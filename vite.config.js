@@ -5,10 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    sourcemap: true, // Enable source maps for debugging
+    sourcemap: true, // Keep sourcemaps for debugging if necessary
     rollupOptions: {
-      external: ['react-router-dom'], // Exclude react-router-dom from the build
+      external: [], // Don't exclude any necessary modules like react-router-dom
     },
   },
 });
-
