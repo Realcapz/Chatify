@@ -20,7 +20,7 @@ const FetchCsrfToken = ({ setCsrfToken }) => {
       })
       .catch(err => {
         console.error('Failed to fetch CSRF token', err);
-        // Optionally handle the error or show a message to the user
+        
       });
     }
   }, [setCsrfToken]);

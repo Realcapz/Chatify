@@ -5,29 +5,29 @@ const Register = ({ csrfToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [avatar, setAvatar] = useState(""); // Nytt state för avatar-URL
+  const [avatar, setAvatar] = useState(""); 
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // Loader state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
 
-    setIsLoading(true); // Startar loader
+    setIsLoading(true); 
     const payload = {
       username,
       password,
       email,
-      avatar, // Lägg till avatar i payload
+      avatar, 
     };
 
-    console.log("Register payload:", payload); // Loggar payload
+    console.log("Register payload:", payload); 
 
     fetch("https://chatify-api.up.railway.app/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token": csrfToken, // CSRF-token i headers
+        "X-CSRF-Token": csrfToken, 
       },
       body: JSON.stringify(payload),
     })
@@ -36,7 +36,7 @@ const Register = ({ csrfToken }) => {
         if (!res.ok) {
           throw new Error(data.message || "Username or email already exists");
         }
-        // Spara användaruppgifter och redirecta till login
+        
         localStorage.setItem("username", username);
         localStorage.setItem("email", email);
         console.log("Registration successful, redirecting to login"); // Logga vid framgång
@@ -46,7 +46,7 @@ const Register = ({ csrfToken }) => {
         setError(err.message);
       })
       .finally(() => {
-        setIsLoading(false); // Stoppar loader
+        setIsLoading(false); 
       });
   };
 

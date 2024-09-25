@@ -38,7 +38,7 @@ const Login = ({ setToken, setUserId, csrfToken }) => {
       const token = data.token;
       const decoded = decodeToken(token);
 
-      // Store user details in localStorage
+      
       localStorage.setItem("token", token);
       localStorage.setItem("userId", decoded.id);
       localStorage.setItem("username", decoded.user);

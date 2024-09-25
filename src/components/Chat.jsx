@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// Funktion för att rengöra textinnehåll i meddelanden
+
 const sanitizeMessageContent = (content) => {
   const tempElement = document.createElement('div');
   tempElement.innerText = content;
@@ -16,7 +16,7 @@ const Chat = ({ token }) => {
   const [currentUserId] = useState(localStorage.getItem('currentUserId') || '');
   const [allConversations, setAllConversations] = useState(JSON.parse(localStorage.getItem('allConversations')) || []);
 
-  // Lista med varierande ChatBot-svar
+
   const fakeResponses = [
     "Det här är ett automatiskt svar!",
     "Intressant fråga, berätta mer!",
@@ -30,7 +30,7 @@ const Chat = ({ token }) => {
     "Har du några andra tankar?"
   ];
 
-  // Slumpa ett svar från listan
+  
   const getRandomResponse = () => {
     return fakeResponses[Math.floor(Math.random() * fakeResponses.length)];
   };
@@ -99,7 +99,7 @@ const Chat = ({ token }) => {
 
       setInputMessage('');
 
-      // Lägg till ett varierande falskt svar efter en kort fördröjning
+    
       setTimeout(() => {
         const fakeResponse = {
           id: Math.random().toString(36).substr(2, 9),
@@ -115,7 +115,7 @@ const Chat = ({ token }) => {
           localStorage.setItem('chatMessages', JSON.stringify(updatedMessages));
           return updatedMessages;
         });
-      }, 2000); // 2 sekunders fördröjning innan det automatiska svaret skickas
+      }, 2000); 
 
     } catch (error) {
       setFetchError('Meddelandet kunde inte skickas');
